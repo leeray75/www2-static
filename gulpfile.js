@@ -188,12 +188,7 @@ gulp.task('copy-templates', function(cb) {
 	.pipe(gulp.dest('./build/dev/templates'))
     .pipe(gulp.dest('./build/Release/templates'));
 });
-gulp.task('copy-images', function(cb) {
-	console.log("copy images");
-  return gulp.src('./src/images/**/*')
-	.pipe(gulp.dest('./build/dev/images'))
-    .pipe(gulp.dest('./build/Release/images'));
-});
+
 gulp.task('copy-js', function(cb) {
 	console.log("copy javascripts");
   return gulp.src('./src/js/**/*')
@@ -253,7 +248,7 @@ function doWatch(){
 
 	
 }
-gulp.task('build',['minify-css','minify-js','copy-fonts','copy-templates','copy-images'],function(){
+gulp.task('build',['minify-css','minify-js','copy-fonts','copy-templates'],function(){
 	console.log("finished build, doing watch");
 	//gulp.start('concat-scripts');
 	doWatch();
