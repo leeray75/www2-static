@@ -60,8 +60,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/switchMap', '@angul
                     core_1.Component({
                         //moduleId: module.id,
                         selector: 'my-hero-detail',
-                        templateUrl: window.MySite.templateSrc + 'hero-detail.component.html',
-                        styleUrls: [window.MySite.stylesSrc + 'hero-detail.component.css']
+                        templateUrl: window.MySite.templateSrc + 'hero-detail.component.html'
                     }), 
                     __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.ActivatedRoute, common_1.Location])
                 ], HeroDetailComponent);

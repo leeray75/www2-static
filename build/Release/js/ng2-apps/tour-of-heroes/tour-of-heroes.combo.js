@@ -118,8 +118,7 @@ System.register("dashboard.component", ['@angular/core', "hero.service"], functi
                     core_2.Component({
                         //moduleId: module.id,
                         selector: 'my-dashboard',
-                        templateUrl: window.MySite.templateSrc + 'dashboard.component.html',
-                        styleUrls: [window.MySite.stylesSrc + 'dashboard.component.css']
+                        templateUrl: window.MySite.templateSrc + 'dashboard.component.html'
                     }), 
                     __metadata('design:paramtypes', [hero_service_1.HeroService])
                 ], DashboardComponent);
@@ -193,8 +192,7 @@ System.register("heroes.component", ['@angular/core', '@angular/router', "hero.s
                     core_3.Component({
                         //moduleId: module.id,
                         selector: 'my-heroes',
-                        templateUrl: window.MySite.templateSrc + 'heroes.component.html',
-                        styleUrls: [window.MySite.stylesSrc + 'heroes.component.css']
+                        templateUrl: window.MySite.templateSrc + 'heroes.component.html'
                     }), 
                     __metadata('design:paramtypes', [hero_service_2.HeroService, router_1.Router])
                 ], HeroesComponent);
@@ -257,8 +255,7 @@ System.register("hero-detail.component", ['rxjs/add/operator/map', 'rxjs/add/ope
                     core_4.Component({
                         //moduleId: module.id,
                         selector: 'my-hero-detail',
-                        templateUrl: window.MySite.templateSrc + 'hero-detail.component.html',
-                        styleUrls: [window.MySite.stylesSrc + 'hero-detail.component.css']
+                        templateUrl: window.MySite.templateSrc + 'hero-detail.component.html'
                     }), 
                     __metadata('design:paramtypes', [hero_service_3.HeroService, router_2.ActivatedRoute, common_1.Location])
                 ], HeroDetailComponent);
@@ -332,8 +329,7 @@ System.register("app.component", ['@angular/core'], function(exports_7, context_
                     core_6.Component({
                         //moduleId: module.id,
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n      <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
-                        styleUrls: [MySite.stylesSrc + 'app.component.css']
+                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n      <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n    </nav>\n    <router-outlet></router-outlet>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
@@ -522,7 +518,7 @@ System.register("hero-search.component", ['@angular/core', '@angular/router', 'r
                         //moduleId: module.id,
                         selector: 'hero-search',
                         templateUrl: window.MySite.templateSrc + 'hero-search.component.html',
-                        styleUrls: [window.MySite.stylesSrc + 'hero-search.component.css'],
+                        //styleUrls: [ window.MySite.stylesSrc+'hero-search.component.css' ],
                         providers: [hero_search_service_1.HeroSearchService]
                     }), 
                     __metadata('design:paramtypes', [hero_search_service_1.HeroSearchService, router_4.Router])

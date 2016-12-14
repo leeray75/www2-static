@@ -71,8 +71,7 @@ System.register(['@angular/core', '@angular/router', './hero.service'], function
                     core_1.Component({
                         //moduleId: module.id,
                         selector: 'my-heroes',
-                        templateUrl: window.MySite.templateSrc + 'heroes.component.html',
-                        styleUrls: [window.MySite.stylesSrc + 'heroes.component.css']
+                        templateUrl: window.MySite.templateSrc + 'heroes.component.html'
                     }), 
                     __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
                 ], HeroesComponent);

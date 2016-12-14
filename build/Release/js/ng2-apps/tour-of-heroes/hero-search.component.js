@@ -63,7 +63,7 @@ System.register(['@angular/core', '@angular/router', 'rxjs/Observable', 'rxjs/Su
                         //moduleId: module.id,
                         selector: 'hero-search',
                         templateUrl: window.MySite.templateSrc + 'hero-search.component.html',
-                        styleUrls: [window.MySite.stylesSrc + 'hero-search.component.css'],
+                        //styleUrls: [ window.MySite.stylesSrc+'hero-search.component.css' ],
                         providers: [hero_search_service_1.HeroSearchService]
                     }), 
                     __metadata('design:paramtypes', [hero_search_service_1.HeroSearchService, router_1.Router])

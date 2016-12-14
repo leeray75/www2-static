@@ -35,8 +35,7 @@ System.register(['@angular/core', './hero.service'], function(exports_1, context
                     core_1.Component({
                         //moduleId: module.id,
                         selector: 'my-dashboard',
-                        templateUrl: window.MySite.templateSrc + 'dashboard.component.html',
-                        styleUrls: [window.MySite.stylesSrc + 'dashboard.component.css']
+                        templateUrl: window.MySite.templateSrc + 'dashboard.component.html'
                     }), 
                     __metadata('design:paramtypes', [hero_service_1.HeroService])
                 ], DashboardComponent);

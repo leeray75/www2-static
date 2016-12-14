@@ -3,7 +3,6 @@
     paths: {
       // paths serve as alias
       'npm:': '/www2-static/node_modules/'
-	  //'npm:': '//unpkg.com/'
     },
     // map tells the System loader where to look for things
     map: {

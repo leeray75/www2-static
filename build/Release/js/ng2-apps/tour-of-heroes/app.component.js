@@ -26,8 +26,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     core_1.Component({
                         //moduleId: module.id,
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n      <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
-                        styleUrls: [MySite.stylesSrc + 'app.component.css']
+                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n      <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n    </nav>\n    <router-outlet></router-outlet>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

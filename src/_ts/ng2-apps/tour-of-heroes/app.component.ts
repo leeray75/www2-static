@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     </nav>
     <router-outlet></router-outlet>
-  `,
-  styleUrls: [MySite.stylesSrc+'app.component.css']
+  `
+  //styleUrls: [MySite.stylesSrc+'app.component.css']
 })
 export class AppComponent {
   title = 'Tour of Heroes';
