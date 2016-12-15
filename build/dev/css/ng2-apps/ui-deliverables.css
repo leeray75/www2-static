@@ -312,6 +312,14 @@ h4 {
     top: 30%;
     transform-origin: 50% 100%;
     width: 2.5%; }
+  #homepage #clock .minutes {
+    background: #000;
+    height: 40%;
+    left: 49%;
+    position: absolute;
+    top: 10%;
+    transform-origin: 50% 100%;
+    width: 2%; }
   #homepage #clock .seconds {
     background: #000;
     height: 45%;
