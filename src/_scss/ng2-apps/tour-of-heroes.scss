@@ -3,3 +3,10 @@
 @import "tour-of-heroes/hero-detail.component";
 @import "tour-of-heroes/hero-search.component";
 @import "tour-of-heroes/heroes.component";
+html, body{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;	
+}
+h1{
+	font-size: 3rem;
+}

@@ -1,0 +1,288 @@
+body {
+  padding-top: 70px;
+  background: #fff;
+}
+@media (max-width: 990px) {
+  body {
+    font-size: 12px;
+  }
+}
+footer {
+  padding: 2em 0;
+  margin: 3em 0 0 0;
+  border-top: 1px solid #ddd;
+  color: #062a53;
+  text-align: center;
+}
+h1 {
+  font-size: 28px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 16px;
+}
+.tab-pane {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+.panel-default {
+  border-color: #3F2B22;
+  > .panel-heading {
+	  background-color: #cdae51;
+	  border-color: #3F2B22;
+	  color: #fff;
+  }
+}
+.breadcrumb > li + li:before {
+  content: none;
+}
+/* Begin Top Global Nav */
+#ui-deliverables-nav{
+	.ui-logo {
+	  padding: 2px 10px 2px 10px;
+	  max-width: 50%;
+	  float: left;
+	}
+	.glyphicon {
+	  color: #062a53;
+	}
+	.navbar-nav {
+  		margin: 0px;
+	}
+	.ui-navbar-item{
+		.navbar-brand {
+			padding-top: 4px;
+			padding-bottom: 0px;
+		}
+	}
+	&.navbar-default{
+		.navbar-toggle{
+			.icon-bar{
+				background-color: #cccccc;
+			}
+			&:hover {
+				background: #337ab7;
+				.icon-bar {
+					background-color: #ffffff;
+				}
+			}
+		}
+	}
+	&.navbar-inverse {
+  		background-color: #cccccc;
+  		border-color: #333;
+		.navbar-toggle {
+			color: white;
+			font-weight: bold;
+			background-color: #062a53;
+			border-color: #fff;
+		}
+  		&.navbar-default{
+			.navbar-nav > li > a {
+				color: #062a53;
+				&:hover {
+				  background: #999;
+				  color: #000;
+				}
+				&.navbar-brand{
+					&:hover{
+						background: none;
+					}
+				}
+			 }
+		} // .navbar-default
+
+	} // .navbar-inverse
+	
+	@media (max-width: 991px) {
+	  .ui-logo {
+	    padding: 2px 10px 2px 10px;
+	    width: 30%;
+	    float: left;
+	  }
+	}
+	@media (max-width: 991px) {
+	  .ui-logo-lg {
+	    display: block;
+	  }
+	}
+	@media (max-width: 767px) {
+	  .ui-logo-lg {
+	    display: block;
+	  }
+	}
+	@media (max-width: 370px) {
+	  .ui-logo-lg {
+	    display: none;
+	  }
+	}
+	@media (max-width: 991px) {
+	  .ui-logo-sm {
+	    display: none;
+	  }
+	}
+	@media (max-width: 767px) {
+	  .ui-logo-sm {
+	    display: none;
+	  }
+	}
+	@media (max-width: 370px) {
+	  .ui-logo-sm {
+	    display: block;
+	  }
+	}
+} // #ui-deliverables-nav
+
+#collapse {
+  float: right;
+}
+@media (max-width: 767px) {
+  #collapse {
+    float: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #UI-Deliverables-Nav.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #062a53;
+  }
+  #UI-Deliverables-Nav.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+    background: #ffffff;
+  }
+}
+
+#UI-Deliverables-Nav.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #999;
+}
+/* Begin Modal Styles */
+.ui-deliverables-modal.modal {
+	.modal-header {
+	  	background-color: #062a53;
+		h4 {
+		  color: #fff;
+		  font-weight: bold;
+		}
+		.close {
+		  color: #fff;
+		  font-weight: bold;
+		  opacity: .8;
+		}
+	} // modal-header
+
+	.modal-body {
+		min-height: 100px;
+
+		.input-container{
+			label {
+			  cursor: pointer;
+			}
+
+			> div.row {
+				margin-top: 10px;
+				&:nth-child(1) {
+					margin-top: 0px;
+				}
+			}
+
+			.labels-column {
+				text-align: right;
+				label {
+				  padding-top: 3px;
+				}
+			}
+
+			.input-column{
+				input[type=email],input[type=password],input[type=text]{
+					width: 80%;
+				}
+			}
+
+		} // .input-container
+  
+	} // .modal-body
+	.modal-footer {
+	  background-color: #cccccc;
+	}
+}
+
+/* Bootstrap Tabs */
+#content{
+	.nav-tabs{
+		>li{
+			>a{
+				border: 1px solid #ddd;
+				border-bottom: none;
+				background-color: #cccccc;
+				color: #062a53;
+			}
+			&.active{
+				>a{
+					background-color: #fff;
+				}
+			}
+		}
+	} // nav-tabs
+
+	.tab-pane {
+		padding: 20px;
+		border: 1px solid #ddd;
+		border-top: none;
+		&:after {
+			visibility: hidden;
+			display: block;
+			font-size: 0;
+			content: " ";
+			clear: both;
+			height: 0;
+		}
+	} // .tab-pane
+	
+} // #content
+
+
+/* Begin Login Module */
+#UI-Login-Module {
+	#LoginSpinner {
+		text-align: center;
+		img {
+			margin-top: 25px;
+		}
+	}
+	#LoginSuccess {
+	  text-align: center;
+	  color: #009900;
+	  margin-top: 25px;
+	  font-weight: bold;
+	}
+	.error-msg {
+	  color: #f00;
+	}
+	.top-error-message {
+	  text-align: center;
+	  width: 80%;
+	  margin: 0 auto 10px auto;
+	}
+}
+@media print {
+  body {
+    padding-top: 0px;
+  }
+  #sharebar,
+  img.sharebar-logo,
+  .breadcrumbs,
+  footer {
+    display: none;
+  }
+}

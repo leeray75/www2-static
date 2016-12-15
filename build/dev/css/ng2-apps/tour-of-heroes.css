@@ -169,3 +169,10 @@ nav a {
       margin-right: .8em;
       background-color: gray !important;
       color: white; }
+
+html, body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px; }
+
+h1 {
+  font-size: 3rem; }

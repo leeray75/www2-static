@@ -1,5 +1,5 @@
 (function (MySite) {
-    var isProduction = MySite.environment === "production";
+    var isProduction = MySite.environment === "production" ? true : false;
     System.config({
         paths: {
             'npm:': isProduction ? '//unpkg.com/' : '/www2-static/node_modules/'
