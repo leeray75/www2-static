@@ -1,3 +1,4 @@
+var git = require('git-rev')
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var map  = require('map-stream');
@@ -10,6 +11,7 @@ var debug = require('gulp-debug');
 var rimraf = require('gulp-rimraf');
 var minify = require('gulp-minify');
 var nano = require('gulp-cssnano');
+var replace = require('gulp-replace');
 
 var fs = require('fs');
 var path = require('path');
@@ -250,6 +252,13 @@ function doWatch(){
 }
 gulp.task('build',['minify-css','minify-js','copy-fonts','copy-templates'],function(){
 	console.log("finished build, doing watch");
+	git.long(function(str){
+		console.log("GIT: "+str);
+		gulp.src(['./src/CacheBuster.php'])
+		.pipe(replace("$cacheVersion = '';","$cacheVersion = '"+str+"';"))
+		.pipe(gulp.dest('./build'));
+	})
+	
 	//gulp.start('concat-scripts');
 	doWatch();
 });
