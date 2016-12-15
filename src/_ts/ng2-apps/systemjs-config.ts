@@ -1,13 +1,14 @@
-(function (global) {
+(function (MySite) {
+  
+  let isProduction = MySite.environment==="production";
+
   System.config({
     paths: {
-      // paths serve as alias
-      'npm:': '/www2-static/node_modules/'
+      'npm:': isProduction ? '//unpkg.com/' : '/www2-static/node_modules/';
     },
-    // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
-      app: '/www2-static/build/Release/js/ng2-apps',
+      app: isProduction ? '/www2-static/build/Release/js/ng2-apps' : '/www2-static/build/dev/js/ng2-apps',
 
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -19,20 +20,25 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
+      '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
+
       // other libraries
       'rxjs':  'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
-    },
-    // packages tells the System loader how to load when no filename and/or no extension
+    }, // map
+    
     packages: {
-      app: {
+      app: isProduction ? {} : {
         main: MySite.mainSrc,
         defaultExtension: 'js'
       },
-	  
+    
       rxjs: {
         defaultExtension: 'js'
       }
     }
-  });
-})(this);
+
+  }); // systemConfig
+
+  
+})(window.MySite);
