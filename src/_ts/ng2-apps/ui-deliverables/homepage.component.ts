@@ -8,8 +8,8 @@ export class HomepageComponent implements OnInit {
 
   constructor(private elementRef: ElementRef, seoService: SeoService) { 
     seoService.setTitle("UI Deliverables");
-    seoService.setMeta('description','Welcome to UI Deliverables! I am a front-end developer with experience in developing in HTML/HTML5, JavaScript, CSS/CSS3.');
-    seoService.setMeta('keywords','HTML,HTML5,CSS,CSS3,angular,angularjs,JavaScript,jQuery,resume,portfolio,demos,contact');
+    seoService.setMeta('description',`Welcome to the NEW UI Deliverable! I am working on this new UI Deliverables site developed with Laravel & Angular 2. It will eventually integrate the site with the new Bootstrap 4 framework (still under alpha). I'll probably wait until the final release before I implement it. I am use NPM as the package manager and GULP as the task runner. The site is developed using SASS and Typescript, that GULP compiles/transpiles to CSS and JavaScript/ES5.`);
+    seoService.setMeta('keywords','Node, Gulp, JavaScript, Typescript, CSS,SASS, HTML, GIT');
   }
   ngOnInit(): void {
     this.initClock();
