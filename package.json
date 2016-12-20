@@ -4,11 +4,11 @@
   "description": "Static front-end content for www2",
   "main": "index.js",
   "scripts": {
+    "dev": "gulp --gulpfile gulpfile.dev.js",
     "release": "gulp --gulpfile gulpfile.release.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start",
     "start": "gulp",
     "stop": "pkill --signal SIGINT myApp",
-    "gulp": "gulp"
   },
   "repository": {
     "type": "git",

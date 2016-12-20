@@ -30,7 +30,7 @@ export class HomepageComponent implements OnInit {
     let minutesAngle = minutes*6;
     let secondsAngle = seconds*6;
 
-    function transformEl(el,angle){
+    function transformEl(el: Element, angle: number){
       el.style.transform = 'rotateZ('+angle+'deg)';
     }
     transformEl(hoursEl,hoursAngle);

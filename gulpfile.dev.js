@@ -52,76 +52,79 @@ function getFolders(dir) {
 	  });
 }
 	
+gulp.task('sass', function() {
+    return gulp.src(_scssFiles)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('build/dev/css'));
+});
 
-(function(){
-	var jsFiles = './build/dev/js/**/*', 
-    jsDest = './build/Release/js';
+gulp.task('typescript', function() {
+	console.log("task: typescript");
+	var scriptsPath = './src/_ts/ng2-apps';
+	var folders = getFolders(scriptsPath);
 	
-	gulp.task('minify-js', function(cb) {
-		console.log("minify-js");
-	  return gulp.src('./build/dev/js/**/*.js')
-		//.pipe(debug())
-		.pipe(minify({
-			/* exclude: ['tasks'], */
-			ignoreFiles: ['.min.js','-min.js']
-		}))
-		.pipe(rename(renameMinJsFile))
-		//.pipe(debug())
-		.pipe(gulp.dest('./build/Release/js'));
+	var tasks = folders.map(function(folder) {
+		var tsProject = ts.createProject('tsconfig.json',{
+			outFile: folder+".combo.js"
+		});
+		var src = path.join(scriptsPath, folder, '/**/*.ts');
+		  return gulp.src(src)
+			.pipe(tsProject())
+			.pipe(gulp.dest('build/dev/js/ng2-apps/'+folder));    
 	});
 	
-})();
+	tsProject = ts.createProject('tsconfig.json');
+    var tsTask = gulp.src(_tsFiles )
+        .pipe(tsProject())
+        .pipe(gulp.dest('build/dev/js'));
+	
+	return merge(tasks, tsTask);
+
+});
 
 
-gulp.task('minify-css', function(cb) {
-	console.log('minify css');
-    return gulp.src('./build/dev/css/**/*.css')
-        .pipe(nano())
-        .pipe(gulp.dest('./build/Release/css'));
+
+//Watch task
+gulp.task('watch', function() {
+	console.log("watching _scss and _ts files");
+    watch(_scssFiles, function () {
+        gulp.start("sass");
+    });	
+	watch(_tsFiles, function () {		 
+        gulp.start("typescript");
+    });	
+
+	watch('src/templates/**/*',function(){
+		gulp.start('copy-templates');
+	})
+});
+
+
+
+gulp.task('clean-dev', function(cb) {
+	return gulp.src('./build/dev/*', { read: false }) // much faster
+	  .pipe(rimraf());
 });
 
 
 gulp.task('copy-fonts', function(cb) {
 	console.log("copy fonts");
-  return gulp.src('./build/dev/fonts/**/*')
-    .pipe(gulp.dest('./build/Release/fonts'));
+  return gulp.src('./src/fonts/**/*')
+	.pipe(gulp.dest('./build/dev/fonts'))
+ 
 });
 
 gulp.task('copy-templates', function(cb) {
 	console.log("copy templates");
-  return gulp.src('./build/dev/templates/**/*')
-    .pipe(gulp.dest('./build/Release/templates'));
-});
-
-gulp.task('copy-js', function(cb) {
-	console.log("copy javascripts");
-  return gulp.src('./build/dev/js/**/*')
-    .pipe(gulp.dest('./build/Release/js'));
-});
-gulp.task('copy-css', function(cb) {
-	console.log("copy css");
-  return gulp.src('./build/dev/css/**/*')
-    .pipe(gulp.dest('./build/Release/css'));
+  return gulp.src('./src/templates/**/*')
+	.pipe(gulp.dest('./build/dev/templates'))
 });
 
 
-gulp.task('build',['minify-css','minify-js','copy-fonts','copy-templates'],function(){
-	// use the last GIT commit hash as cache buster
-	git.long(function(str){
-		gulp.src(['./src/CacheBuster.php'])
-		.pipe(replace("$cacheVersion = '';","$cacheVersion = '"+str+"';"))
-		.pipe(gulp.dest('./build'));
-	})
-	
-});
-
-gulp.task('clean-release', function(cb) {
-	return gulp.src('./build/Release/*', { read: false }) // much faster
-	  .pipe(rimraf());
-});
+gulp.task('init',['sass', 'typescript', 'copy-templates','copy-fonts','watch'],function(){});
 
 
-gulp.task('default', ['clean-release'],function(){
-	console.log("Start Build");
-	gulp.start('build');
+gulp.task('default', ['clean-dev'],function(){
+	console.log("triggering new tasks");
+	gulp.start('init');
 });

@@ -11,13 +11,6 @@ export class SeoService {
   * <head> Element of the HTML document
   */
   private headElement: HTMLElement;
- /**
-  * <head> Element of the HTML document
-  */
-  private metaDescription: HTMLElement;
- /**
-  * <head> Element of the HTML document
-  */
   private metas: any;
 
  /**
@@ -38,7 +31,7 @@ export class SeoService {
     this.titleService.setTitle(newTitle);
   }
 
-  public getMeta(name: string): string{
+  public getMeta(name: string): HTMLElement{
     return this.getOrCreateMetaElement(name);
   }
   public setMeta(name: string, value: string): void{
@@ -56,7 +49,8 @@ export class SeoService {
         return this.metas[name];
       }
 
-      el = document.querySelector('meta[name=' + name + ']');
+      el = <HTMLElement> document.querySelector('meta[name=' + name + ']');
+
       if (el === null) {
         el = document.createElement('meta');
         el.setAttribute('name', name);
