@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', './rxjs-extensions', './app-routing.module', './app.component', './homepage.component', './resume.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', 'common/seo.service', './rxjs-extensions', './app-routing.module', './app.component', './homepage.component', './resume.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, app_routing_module_1, app_component_1, homepage_component_1, resume_component_1;
+    var core_1, platform_browser_1, forms_1, http_1, seo_service_1, app_routing_module_1, app_component_1, homepage_component_1, resume_component_1;
     var AppModule;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (seo_service_1_1) {
+                seo_service_1 = seo_service_1_1;
             },
             function (_1) {},
             function (app_routing_module_1_1) {
@@ -56,7 +59,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                             resume_component_1.ResumeComponent,
                             app_component_1.AppComponent
                         ],
-                        providers: [],
+                        providers: [seo_service_1.SeoService],
                         bootstrap: [app_component_1.AppComponent]
                     }), 
                     __metadata('design:paramtypes', [])

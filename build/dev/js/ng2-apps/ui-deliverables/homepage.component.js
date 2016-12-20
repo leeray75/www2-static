@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', 'common/seo.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,17 +10,23 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, seo_service_1;
     var HomepageComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (seo_service_1_1) {
+                seo_service_1 = seo_service_1_1;
             }],
         execute: function() {
             HomepageComponent = (function () {
-                function HomepageComponent(elementRef) {
+                function HomepageComponent(elementRef, seoService) {
                     this.elementRef = elementRef;
+                    seoService.setTitle("UI Deliverables");
+                    seoService.setMeta('description', 'Welcome to UI Deliverables! I am a front-end developer with experience in developing in HTML/HTML5, JavaScript, CSS/CSS3.');
+                    seoService.setMeta('keywords', 'HTML,HTML5,CSS,CSS3,angular,angularjs,JavaScript,jQuery,resume,portfolio,demos,contact');
                 }
                 HomepageComponent.prototype.ngOnInit = function () {
                     this.initClock();
@@ -49,9 +55,10 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         selector: 'home-page',
                         templateUrl: window.MySite.templateSrc + 'homepage.html'
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef])
+                    __metadata('design:paramtypes', [core_1.ElementRef, (typeof (_a = typeof seo_service_1.SeoService !== 'undefined' && seo_service_1.SeoService) === 'function' && _a) || Object])
                 ], HomepageComponent);
                 return HomepageComponent;
+                var _a;
             }());
             exports_1("HomepageComponent", HomepageComponent);
         }

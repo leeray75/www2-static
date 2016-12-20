@@ -2,7 +2,7 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule }    from '@angular/http';
-
+import { SeoService } from 'common/seo.service';
 import './rxjs-extensions';
 
 import { AppRoutingModule }     from './app-routing.module';
@@ -21,7 +21,7 @@ import { ResumeComponent }    from './resume.component';
     ResumeComponent,
     AppComponent
   ],
-  providers: [],
+  providers: [ SeoService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

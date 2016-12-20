@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   copyrightYear = window.MySite.currentYear;
   constructor: void{
-    console.log("constructor");
   }
 }

@@ -7,6 +7,7 @@
         map: {
             // our app is within the app folder
             app: isProduction ? '/www2-static/build/Release/js/ng2-apps' : '/www2-static/build/dev/js/ng2-apps',
+            common: isProduction ? '/www2-static/build/Release/js/ng2-apps/common' : '/www2-static/build/dev/js/ng2-apps/common',
             // angular bundles
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
             '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -25,6 +26,9 @@
             app: isProduction ? {} : {
                 main: MySite.mainSrc,
                 defaultExtension: 'js'
+            },
+            common: {
+                defaultExtension: isProduction ? 'min.js' : 'js'
             },
             rxjs: {
                 defaultExtension: 'js'

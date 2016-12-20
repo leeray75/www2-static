@@ -7,20 +7,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-System.register("homepage.component", ['@angular/core'], function(exports_1, context_1) {
+System.register("homepage.component", ['@angular/core', 'common/seo.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var core_1;
+    var core_1, seo_service_1;
     var HomepageComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (seo_service_1_1) {
+                seo_service_1 = seo_service_1_1;
             }],
         execute: function() {
             HomepageComponent = (function () {
-                function HomepageComponent(elementRef) {
+                function HomepageComponent(elementRef, seoService) {
                     this.elementRef = elementRef;
+                    seoService.setTitle("UI Deliverables");
+                    seoService.setMeta('description', 'Welcome to UI Deliverables! I am a front-end developer with experience in developing in HTML/HTML5, JavaScript, CSS/CSS3.');
+                    seoService.setMeta('keywords', 'HTML,HTML5,CSS,CSS3,angular,angularjs,JavaScript,jQuery,resume,portfolio,demos,contact');
                 }
                 HomepageComponent.prototype.ngOnInit = function () {
                     this.initClock();
@@ -49,28 +55,35 @@ System.register("homepage.component", ['@angular/core'], function(exports_1, con
                         selector: 'home-page',
                         templateUrl: window.MySite.templateSrc + 'homepage.html'
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef])
+                    __metadata('design:paramtypes', [core_1.ElementRef, (typeof (_a = typeof seo_service_1.SeoService !== 'undefined' && seo_service_1.SeoService) === 'function' && _a) || Object])
                 ], HomepageComponent);
                 return HomepageComponent;
+                var _a;
             }());
             exports_1("HomepageComponent", HomepageComponent);
         }
     }
 });
-System.register("resume.component", ['@angular/core'], function(exports_2, context_2) {
+System.register("resume.component", ['@angular/core', 'common/seo.service'], function(exports_2, context_2) {
     "use strict";
     var __moduleName = context_2 && context_2.id;
-    var core_2;
+    var core_2, seo_service_2;
     var ResumeComponent;
     return {
         setters:[
             function (core_2_1) {
                 core_2 = core_2_1;
+            },
+            function (seo_service_2_1) {
+                seo_service_2 = seo_service_2_1;
             }],
         execute: function() {
             ResumeComponent = (function () {
-                function ResumeComponent(elementRef) {
+                function ResumeComponent(elementRef, seoService) {
                     this.elementRef = elementRef;
+                    seoService.setTitle("UI Deliverables: Raymond Lee's Resume - Front End Web Developer");
+                    seoService.setMeta('description', 'Raymond Lee\'s resume. Front-End web developer. Experience with HTML/HTML5, CSS/CSS3, JavaScript, jQuery, AngularJS, Backbone.js,  Bootstrap, and JSON.');
+                    seoService.setMeta('keywords', 'resume, html, html5, css, css3, javascript, jquery, ajax, json, frontend, front-end, developer, AngularJS, Backbone.js, Bootstrap');
                 }
                 ResumeComponent.prototype.ngOnInit = function () {
                 };
@@ -79,9 +92,10 @@ System.register("resume.component", ['@angular/core'], function(exports_2, conte
                         selector: 'resume-page',
                         templateUrl: window.MySite.templateSrc + 'resume.html'
                     }), 
-                    __metadata('design:paramtypes', [core_2.ElementRef])
+                    __metadata('design:paramtypes', [core_2.ElementRef, (typeof (_a = typeof seo_service_2.SeoService !== 'undefined' && seo_service_2.SeoService) === 'function' && _a) || Object])
                 ], ResumeComponent);
                 return ResumeComponent;
+                var _a;
             }());
             exports_2("ResumeComponent", ResumeComponent);
         }
@@ -142,7 +156,6 @@ System.register("app.component", ['@angular/core'], function(exports_4, context_
             AppComponent = (function () {
                 function AppComponent() {
                     this.copyrightYear = window.MySite.currentYear;
-                    console.log("constructor");
                 }
                 AppComponent = __decorate([
                     core_4.Component({
@@ -175,10 +188,10 @@ System.register("rxjs-extensions", ['rxjs/add/observable/of', 'rxjs/add/observab
         }
     }
 });
-System.register("app.module", ['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', "rxjs-extensions", "app-routing.module", "app.component", "homepage.component", "resume.component"], function(exports_6, context_6) {
+System.register("app.module", ['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', 'common/seo.service', "rxjs-extensions", "app-routing.module", "app.component", "homepage.component", "resume.component"], function(exports_6, context_6) {
     "use strict";
     var __moduleName = context_6 && context_6.id;
-    var core_5, platform_browser_1, forms_1, http_1, app_routing_module_1, app_component_1, homepage_component_2, resume_component_2;
+    var core_5, platform_browser_1, forms_1, http_1, seo_service_3, app_routing_module_1, app_component_1, homepage_component_2, resume_component_2;
     var AppModule;
     return {
         setters:[
@@ -193,6 +206,9 @@ System.register("app.module", ['@angular/core', '@angular/platform-browser', '@a
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (seo_service_3_1) {
+                seo_service_3 = seo_service_3_1;
             },
             function (_10) {},
             function (app_routing_module_1_1) {
@@ -224,7 +240,7 @@ System.register("app.module", ['@angular/core', '@angular/platform-browser', '@a
                             resume_component_2.ResumeComponent,
                             app_component_1.AppComponent
                         ],
-                        providers: [],
+                        providers: [seo_service_3.SeoService],
                         bootstrap: [app_component_1.AppComponent]
                     }), 
                     __metadata('design:paramtypes', [])

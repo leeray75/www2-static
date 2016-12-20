@@ -21,7 +21,6 @@ System.register(['@angular/core'], function(exports_1, context_1) {
             AppComponent = (function () {
                 function AppComponent() {
                     this.copyrightYear = window.MySite.currentYear;
-                    console.log("constructor");
                 }
                 AppComponent = __decorate([
                     core_1.Component({
