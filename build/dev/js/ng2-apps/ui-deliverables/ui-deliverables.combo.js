@@ -251,19 +251,25 @@ System.register("app.module", ['@angular/core', '@angular/platform-browser', '@a
         }
     }
 });
-System.register("main", ['@angular/platform-browser-dynamic', "app.module"], function(exports_7, context_7) {
+System.register("main", ['@angular/platform-browser-dynamic', '@angular/core', "app.module"], function(exports_7, context_7) {
     "use strict";
     var __moduleName = context_7 && context_7.id;
-    var platform_browser_dynamic_1, app_module_1;
+    var platform_browser_dynamic_1, core_6, app_module_1;
     return {
         setters:[
             function (platform_browser_dynamic_1_1) {
                 platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
             },
+            function (core_6_1) {
+                core_6 = core_6_1;
+            },
             function (app_module_1_1) {
                 app_module_1 = app_module_1_1;
             }],
         execute: function() {
+            if (window.MySite.environment === "production") {
+                core_6.enableProdMode();
+            }
             platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
         }
     }
